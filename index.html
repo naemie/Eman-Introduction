@@ -338,6 +338,7 @@
             border-radius: 20px;
             border: 2px solid #333;
             box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+            white-space: nowrap;
         }
 
         .balik-sa-taas {
@@ -555,18 +556,22 @@
         const uupButton = document.getElementById('uup');
         
         window.addEventListener('scroll', () => {
-            var allReveals = document.querySelectorAll(".reveal");
-            var lastOne = allReveals[allReveals.length - 1];
-            
-            if (lastOne) {
-                var rect = lastOne.getBoundingClientRect();
-                var windowHeight = window.innerHeight;
-                var showPoint = 150;
+            var sectionPurple = document.querySelector('.section-purple');
+            var footerSection = document.querySelector('footer');
+            var scrollText = document.querySelector('.scroll-text');
 
-                if (rect.top < windowHeight - showPoint) {
+            if (sectionPurple && footerSection) {
+                var purpleRect = sectionPurple.getBoundingClientRect();
+                var footerRect = footerSection.getBoundingClientRect();
+                
+                if (purpleRect.top < window.innerHeight / 2 && footerRect.top > window.innerHeight - 50) {
+                    scrollText.innerText = "View Footer";
+                    walanaakomaisip.classList.remove('faded');
+                } else if (footerRect.top <= window.innerHeight) {
                     walanaakomaisip.classList.add('faded');
                 } else {
                     walanaakomaisip.classList.remove('faded');
+                    scrollText.innerText = "Scroll Down!";
                 }
             }
 
