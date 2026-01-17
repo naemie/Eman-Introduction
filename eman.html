@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I love cleo ❤︎⁠</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Patrick Hand', cursive;
+            background-color: #87CEEB;
+            color: #333;
+            overflow-x: hidden;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka One', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 3px 3px 0px #333;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .cloud {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            z-index: -1;
+            animation: floatCloud linear infinite;
+        }
+
+        .cloud::after, .cloud::before {
+            content: '';
+            position: absolute;
+            background: inherit;
+            border-radius: 50%;
+        }
+
+        .c1 { width: 120px; height: 50px; top: 10%; left: -150px; animation-duration: 25s; }
+        .c1::after { width: 60px; height: 60px; top: -30px; left: 15px; }
+        .c1::before { width: 50px; height: 50px; top: -20px; left: 50px; }
+
+        .c2 { width: 180px; height: 80px; top: 40%; left: -200px; animation-duration: 35s; animation-delay: 5s; }
+        .c2::after { width: 90px; height: 90px; top: -45px; left: 25px; }
+        .c2::before { width: 80px; height: 80px; top: -35px; left: 80px; }
+
+        .c3 { width: 100px; height: 40px; top: 70%; left: -120px; animation-duration: 20s; animation-delay: 2s; }
+        .c3::after { width: 50px; height: 50px; top: -25px; left: 10px; }
+
+        @keyframes floatCloud {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(120vw); }
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+            min-height: 90vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bigPiPicture {
+            background: #FFD700;
+            border: 5px solid #333;
+            border-radius: 20px;
+            padding: 30px;
+            display: inline-block;
+            box-shadow: 10px 10px 0px #333;
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+            max-width: 90%;
+        }
+
+        .bigPiPicture:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .profile-pic-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border: 5px solid #b39898;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .section-block {
+            background: #fff;
+            border: 4px solid #333;
+            border-radius: 15px;
+            padding: 60px;
+            margin: 40px 0;
+            box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .section-green { background: #98FB98; }
+        .section-pink { background: #FFB6C1; }
+        .section-orange { background: #FFA07A; }
+        .section-purple { background: #00c3ff; }
+
+        .section-block:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #333;
+            text-shadow: 2px 2px 0px #fff;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            padding: 5px 20px;
+            border-radius: 50px;
+            border: 3px solid #333;
+            margin-top: -50px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .photo-item {
+            background: #fff;
+            padding: 10px 10px 40px 10px;
+            border: 2px solid #333;
+            box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+            transform: rotate(2deg);
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .photo-item:nth-child(even) { transform: rotate(-2deg); }
+        .photo-item:hover {
+            transform: scale(1.1) rotate(0deg);
+            z-index: 10;
+            box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border: 1px solid #eee;
+            background: #f0f0f0;
+        }
+
+        .photo-caption {
+            font-family: 'Patrick Hand', cursive;
+            margin-top: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid { grid-template-columns: 1fr; }
+        }
+
+        .info-card {
+            background: rgba(255,255,255,0.7);
+            border-radius: 10px;
+            padding: 15px;
+            border: 2px dashed #333;
+        }
+
+        .fun-btn {
+            background: #FF6347;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #b32d16;
+            transition: all 0.1s;
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .fun-btn:active {
+            box-shadow: 0 2px 0 #b32d16;
+            transform: translateY(3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #333;
+            color: #fff;
+            margin-top: 50px;
+            border-top: 10px solid #FFD700;
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .section-title { font-size: 1.8rem; padding: 5px 15px; }
+            .bigPiPicture { width: 100%; transform: none; }
+            .photo-grid { grid-template-columns: repeat(2, 1fr); }
+            body { font-size: 16px; }
+        }
+
+        .reveal {
+            position: relative;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 1s all ease;
+        }
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .ewanko {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            flex-direction: column;
+        }
+        .ewanko-content {
+            max-width: 90%;
+            max-height: 60%;
+            border: 5px solid #fff;
+            border-radius: 10px;
+        }
+        .close-ewanko {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .kwento-box {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 15px;
+            border: 3px solid #333;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.5rem;
+            text-align: center;
+            max-width: 80%;
+            animation: bounceArrow 0.5s;
+        }
+
+        .scroll-down-hint {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #333;
+            z-index: 90;
+            transition: opacity 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .scroll-down-hint.faded {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .arrow-animation {
+            margin-top: 5px;
+            animation: bounceArrow 2s infinite;
+        }
+        
+        .arrow-svg {
+            width: 60px;
+            height: 60px;
+            filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.2));
+        }
+
+        .scroll-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            background: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 2px solid #333;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+        }
+
+        .balik-sa-taas {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #FFD700;
+            border: 4px solid #333;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            z-index: 95;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 4px 4px 0px #333;
+            transition: transform 0.2s;
+        }
+
+        .balik-sa-taas:hover {
+            transform: translateY(-5px);
+        }
+
+        .arrow-up-svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        @keyframes bounceArrow {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+
+    <div class="scroll-down-hint" id="walanaakomaisip" onclick="eman()">
+        <div class="scroll-text">Scroll Down!</div>
+        <div class="arrow-animation">
+            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4V20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 13L12 20L19 13" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="balik-sa-taas" id="uup" onclick="balik()">
+        <svg class="arrow-up-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 20V4" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 11L12 4L19 11" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+    <div class="container">
+        
+        <header>
+            <div class="bigPiPicture">
+                <div class="profile-pic-container">
+                    <img src="images/peace.jpg" alt="Emanuelle">
+                </div>
+                <h1>Hi! I am Emanuelle T. Tablizo</h1>
+                <p>18 Years Old • From Taguig • Aspiring Full Stack Web Developer (sana palarin)</p>
+            </div>
+        </header>
+
+        <section class="section-block section-green reveal">
+            <div class="section-title">My Hobbies</div>
+            <p style="text-align: center;">click image to view description</p>
+            
+            <div class="photo-grid">
+                <div class="photo-item" onclick="yes(this)" data-kwento="In my spare time, I enjoy playing gacha and first person shooter games">
+                    <img src="images/genshin.jpg" alt="Gaming">
+                    <div class="photo-caption">Playing Games</div>
+                </div>
+                <div class="photo-item" onclick="yes(this)" data-kwento="I enjoy watching films with my girlfriend <3">
+                    <img src="images/mr whatsit.jpg" alt="Movies">
+                    <div class="photo-caption">Television Series</div>
+                </div>
+                <div class="photo-item" onclick="yes(this)" data-kwento="I view anime when I'm feeling bored">
+                    <img src="images/ryuzaki.jpg" alt="Anime">
+                    <div class="photo-caption">Anime</div>
+                </div>
+        </section>
+
+        <section class="section-block section-orange reveal">
+            <div class="section-title">Why Computer Science?</div>
+            <div class="info-grid">
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <div class="photo-item" style="transform: rotate(-3deg); width: 80%;">
+                        <img src="images/coding.png" alt="Technology">
+                        <div class="photo-caption">I love Technology!</div>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <h2>Creating website is cool!</h2>
+                    <p>I chose <strong>BS Computer Science</strong> majoring in <strong>Application Development</strong> because I simply love technology.</p>
+                    <p>My goal? To gain deeper knowledge about tech, especially <strong>Web Developing</strong>. I want to build cool stuff that lives on the internet!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block section-purple reveal">
+            <div class="section-title">Future & Goals</div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>My Dream Job</h3>
+                    <p>✨ <strong>Data Analyst or Full Stack Web Developer</strong> ✨</p>
+                    <p>My dream job is data analyst or web developer because both careers allow me to use logic, creativity, and technology to turn information and ideas into useful solutions.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Creating Value</h3>
+                    <p>I see myself using my CS degree to <strong>share knowledge</strong> with people about technology.</p>
+                    <p>And of course... using this degree to create money! </p>
+                </div>
+            </div>
+
+        <div style="text-align: center; margin-bottom: 50px;">
+            <button class="fun-btn" onclick="alert('Thanks you for visiting my self introduction!')">Finish</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>I created this website with the help of bootstrap, tailwind, svg icons, codepen, and google fonts!</p>
+        <p>1st Year BSCS Student • Future Data Analyst or Web developer (sana)</p>
+    </footer>
+
+    <div id="imageEwanko" class="ewanko">
+        <span class="close-ewanko" onclick="ok()">&times;</span>
+        <img class="ewanko-content" id="img01">
+        <div id="paliwanag" class="kwento-box"></div>
+    </div>
+
+    <script>
+        function sixseven() {
+            var hindikoalam = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < hindikoalam.length; i++) {
+                var windowHeightEman = window.innerHeight;
+                var elementTopEman = hindikoalam[i].getBoundingClientRect().top;
+                var visiblePoint = 150;
+
+                if (elementTopEman < windowHeightEman - visiblePoint) {
+                    hindikoalam[i].classList.add("active");
+                } else {
+                    hindikoalam[i].classList.remove("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", sixseven);
+        sixseven();
+
+        function yes(whatIsThis) {
+            var myPopup = document.getElementById("imageEwanko");
+            var myPic = document.getElementById("img01");
+            var myStory = document.getElementById("paliwanag");
+            var srcImg = whatIsThis.querySelector('img');
+            var infoText = whatIsThis.getAttribute('data-kwento');
+            
+            myPopup.style.display = "flex";
+            myPic.src = srcImg.src;
+            myStory.innerText = infoText;
+        }
+
+        function ok() {
+            var myPopup = document.getElementById("imageEwanko");
+            myPopup.style.display = "none";
+        }
+
+        window.onclick = function(evt) {
+            var myPopup = document.getElementById("imageEwanko");
+            if (evt.target == myPopup) {
+                myPopup.style.display = "none";
+            }
+        }
+
+        const walanaakomaisip = document.getElementById('walanaakomaisip');
+        const uupButton = document.getElementById('uup');
+        
+        window.addEventListener('scroll', () => {
+            var allReveals = document.querySelectorAll(".reveal");
+            var lastOne = allReveals[allReveals.length - 1];
+            
+            if (lastOne) {
+                var rect = lastOne.getBoundingClientRect();
+                var windowHeight = window.innerHeight;
+                var showPoint = 150;
+
+                if (rect.top < windowHeight - showPoint) {
+                    walanaakomaisip.classList.add('faded');
+                } else {
+                    walanaakomaisip.classList.remove('faded');
+                }
+            }
+
+            if (window.scrollY > 300) {
+                uupButton.style.display = "flex";
+            } else {
+                uupButton.style.display = "none";
+            }
+        });
+
+        function eman() {
+            const targets = [
+                document.querySelector('header'),
+                document.querySelector('.section-green'),
+                document.querySelector('.section-orange'),
+                document.querySelector('.section-purple'),
+                document.querySelector('footer')
+            ];
+
+            for (let i = 0; i < targets.length; i++) {
+                const rect = targets[i].getBoundingClientRect();
+                if (rect.top > 50) { 
+                    targets[i].scrollIntoView({ behavior: 'smooth' });
+                    return;
+                }
+            }
+        }
+
+        function balik() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
